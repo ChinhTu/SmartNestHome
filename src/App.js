@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Col, Row, Tabs } from "antd";
+import { Col, Row, Tabs, Switch } from "antd";
 import logo from "./images/image002.png";
 import logo1 from "./images/logokhoa.png";
 import { AlertFilled } from "@ant-design/icons";
 import { ref, child, get } from "firebase/database";
 import { database } from "./firebaseConfig";
-import { async } from "@firebase/util";
 
 const App = () => {
   const [value, setValue] = useState({});
@@ -28,6 +27,11 @@ const App = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const onChange = (checked) => {
+    console.log(`switch to ${checked}`);
+  };
+
   return (
     <div className="container">
       <div className="header-wrapper">
@@ -111,7 +115,56 @@ const App = () => {
             </Row>
           </Tabs.TabPane>
           <Tabs.TabPane tab="Mode Settings" key="2">
-            Content of Tab Pane 2
+            <div className="switch-wrapper">
+              <Row>
+                <Col span={1}></Col>
+                <Col span={11}>
+                  <Switch defaultChecked onChange={onChange} />
+                  <span>Auto Mode</span>
+                </Col>
+                <Col span={11}></Col>
+                <Col span={1}></Col>
+              </Row>
+            </div>
+            <div className="switch-wrapper">
+              <Row>
+                <Col span={1}></Col>
+                <Col span={11}>
+                  <Switch defaultChecked onChange={onChange} />
+                  <span>Auto Mode</span>
+                </Col>
+                <Col span={11}>
+                  <Switch defaultChecked onChange={onChange} />
+                </Col>
+                <Col span={1}></Col>
+              </Row>
+            </div>
+            <div className="switch-wrapper">
+              <Row>
+                <Col span={1}></Col>
+                <Col span={11}>
+                  <Switch defaultChecked onChange={onChange} />
+                  <span>Auto Mode</span>
+                </Col>
+                <Col span={11}>
+                  <Switch defaultChecked onChange={onChange} />
+                </Col>
+                <Col span={1}></Col>
+              </Row>
+            </div>
+            <div className="switch-wrapper">
+              <Row>
+                <Col span={1}></Col>
+                <Col span={11}>
+                  <Switch defaultChecked onChange={onChange} />
+                  <span>Auto Mode</span>
+                </Col>
+                <Col span={11}>
+                  <Switch defaultChecked onChange={onChange} />
+                </Col>
+                <Col span={1}></Col>
+              </Row>
+            </div>
           </Tabs.TabPane>
           <Tabs.TabPane tab="Alarm Settings" key="3">
             Content of Tab Pane 3
